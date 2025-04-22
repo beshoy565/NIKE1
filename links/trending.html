@@ -1,0 +1,251 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>trending</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: arial;
+            background-color: #464646;
+            padding: 10;
+        }
+
+
+
+        .header {
+            color: white;
+            text-align: center;
+            padding: 30px;
+            background-color: rgb(0, 0, 0);
+            animation-duration: 5s;
+            animation-name: fadein;
+        }
+
+        h1 {
+            animation-duration: 5s;
+            animation-name: fadein;
+        }
+
+        @keyframes fadein {
+            0% {
+                color: black;
+            }
+
+            100% {
+                color: white;
+            }
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 50px;
+        }
+
+        .topnav {
+            background-color: rgb(27, 27, 27);
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .topnav a:not(.nike) {
+            float: left;
+            display: block;
+            color: #8e8e8e;
+            padding: 13px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .nike {
+            float: left;
+            display: block;
+            color: #000000;
+            background-color: white;
+            padding: 13px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .topnav a:hover:not(.nike) {
+            color: rgb(255, 255, 255);
+            background-color: rgb(78, 78, 78);
+        }
+
+        .nike:hover {
+            color: rgb(33, 33, 33);
+            background-color: rgb(57, 57, 57);
+        }
+
+        .search {
+            border-radius: none;
+            padding: 20px;
+            width: 75.53%;
+            height: 40;
+        }
+
+        .trending {
+            background-color: white;
+        }
+
+        .card {
+            margin: 10px;
+            border: 2px solid #ccc;
+            float: left;
+            width: 48%;
+            background-color: #8e8e8e;
+        }
+
+        .image {
+            border: #8d8d8d solid;
+            width: 100%;
+        }
+
+        .price {
+            text-align: center;
+        }
+
+        .footer {
+            padding: 2px;
+            margin-top: 2200px;
+            text-align: center;
+            background-color: #ddd;
+            border-radius: 10px;
+        }
+
+        #backToTop {
+            background-color: black;
+            color: white;
+            font-size: large;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+
+        .dark-mode {
+            background: #d7d7d7;
+            color: black;
+        }
+
+        .dark-mode .card {
+            border-color: rgb(87, 87, 87);
+            background: rgb(87, 87, 87);
+            color: black;
+        }
+
+        .dark-mode .header {
+            background: #f2f2f2;
+            color: black;
+        }
+
+        .dark-mode #nike {
+            color: black;
+        }
+
+        .dark-mode #backToTop {
+            color: black;
+            background-color: whitesmoke;
+        }
+
+        .dark-mode .topnav {
+            background: #e4e4e4;
+            color: black;
+        }
+
+        .dark-mode .footer {
+            background: #4e4e4e;
+            color: rgb(194, 194, 194);
+        }
+
+        #height{
+            height: 772.11px;
+        }
+
+        @media screen and (max-width: 768px) {    
+    h2{
+        font-size: 95%;
+    }
+
+    #img{
+        max-width: 130%;
+        
+    }
+
+    #height{
+        height: 362.7px;
+    }
+
+    .search{
+        width: 50%;
+    }
+
+    .card{
+        width: 46%;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1 id="nike">trending</h1>
+        <p>buy our most poplur products</p>
+    </div>
+    <button id="backToTop">⬆ Top</button>
+    <div class="topnav">
+        <a href="../website.html" class="nike">nike</a>
+        <a href="news.html">news</a>
+        <a href="shop.html">shop</a>
+        <input class="search" type="text" placeholder="search">
+        <a id="toggleDarkMode">darkmode</a>
+        <a href="onsale.html" style="float: right;">on sale!!</a>
+    </div>
+
+    <div class="trending">
+        <div class="card">
+
+            <img id="height" class="image" src="../images/Scanned_20241102-1637-01.jpg" alt="" >
+            <p class="price">nike white and red jordans <br></p>
+            <p class="price">118.99$</p>
+
+        </div>
+        <div class="card">
+
+            <img class="image" src="../images/blue and white jordans.jpg" alt="">
+            <p class="price">nike white and blue jordans <br></p>
+            <p class="price">120.99$</p>
+
+        </div>
+        <div class="card">
+
+            <img class="image" src="../images/Scanned_20241102-1637-02.jpg" alt="">
+            <p class="price">nike black and blue jordans <br></p>
+            <p class="price">107.99$</p>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <h5>1964-2024 nike.inc.all rights reserved</h5>
+    </div>
+
+    <script>
+        //dark mode
+        document.getElementById("toggleDarkMode").onclick = () => document.body.classList.toggle("dark-mode");
+
+        //backtotop
+        window.onscroll = () => {
+            document.getElementById("backToTop").style.display = window.scrollY > 200 ? "block" : "none"
+        }
+        document.getElementById("backToTop").onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    </script>
+</body>
+
+</html>

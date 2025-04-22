@@ -1,0 +1,225 @@
+<html>
+
+<head>
+
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #657c92;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-container {
+            background: #141414;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(73, 73, 73, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            color: #a5bec1;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 3px solid #828282;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #1b4d82;
+            color: #f2f2f2;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #14355a;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .result {
+            background: #e0f7fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-container">
+        <h2 style="color: #657c92;">Create Account</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <div class="error" id="usernameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+                <div class="error" id="phoneError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <div class="error" id="genderError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div class="error" id="passwordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="error" id="confirmPasswordError"></div>
+            </div>
+
+            <button type="submit" class="btn"><a href="../day11/website.html">sign up</a></button>
+        </form>
+
+        <!-- This is where the data will show -->
+        <div class="result" id="resultBox"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('signupForm');
+        const resultBox = document.getElementById('resultBox');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const errors = ['usernameError', 'emailError', 'phoneError', 'genderError', 'passwordError', 'confirmPasswordError'];
+            errors.forEach(id => document.getElementById(id).textContent = '');
+
+            let valid = true;
+
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const gender = document.getElementById('gender').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (username.length < 3) {
+                document.getElementById('usernameError').textContent = 'Username must be at least 3 characters';
+                valid = false;
+            }
+
+            if (!email.includes('@') || !email.includes('.')) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email';
+                valid = false;
+            }
+
+            if (!/^0[0-9]{10}$/.test(phone)) {
+                document.getElementById('phoneError').textContent = 'Enter a valid phone number starting with 0 (11 digits)';
+                valid = false;
+            }
+
+            if (gender === '') {
+                document.getElementById('genderError').textContent = 'Please select a gender';
+                valid = false;
+            }
+
+            if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters';
+                valid = false;
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
+                valid = false;
+            }
+
+            if (valid) {
+                // Show data to user
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = `
+                    <h3>Sign Up Successful 🎉</h3>
+                    <p><strong>Username:</strong> ${username}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Phone:</strong> ${phone}</p>
+                    <p><strong>Gender:</strong> ${gender}</p>
+                `;
+
+                // window.location.href = "../day11/website.html"
+
+                form.reset(); // Clear form fields
+
+                setTimeout(()=>{
+                    window.location.href = "../day11/website.html"
+                },3000);
+                    
+
+            }
+        });
+    </script>
+
+</body>
+
+</html>

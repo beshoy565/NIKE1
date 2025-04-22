@@ -1,0 +1,192 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: arial;
+    background-color: #464646;
+    padding: 10;
+}
+
+
+
+.header {
+    color: white;
+    text-align: center;
+    padding: 30px;
+    background-color: rgb(0, 0, 0);
+    animation-duration: 5s;
+    animation-name: fadein;
+}
+
+#nike{
+    animation-duration: 3s;
+    animation-name: fadein;
+}
+
+@keyframes fadein{
+    0%{color: black;}
+    100%{color:white;}
+}
+
+.header h1 {
+    color: white;
+    font-size: 50px;
+}
+
+.topnav {
+    background-color: rgb(27, 27, 27);
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #8e8e8e;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.topnav a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(78, 78, 78);
+}
+
+.leftcolum {
+    float: left;
+    width: 75%;
+}
+
+.rightcolum {
+    float: left;
+    width: 25%;
+    padding-left: 10px;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.card {
+    border: double rgb(205, 205, 205) 10px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.founder {
+
+    width: 100%;
+    padding: 20px;
+}
+
+.drake {
+
+    width: 100%;
+    padding: 20px;
+}
+
+.compare {
+
+    width: 100%;
+    padding: 20px;
+}
+
+.poplurshoes {
+    width: 100%;
+    padding: 20px;
+}
+
+.footer {
+    padding: 2px;
+    margin-top: 100px;
+    text-align: center;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+.button {
+    background-color: rgb(55, 55, 55);
+    color: rgb(255, 255, 255);
+}
+
+.button a {
+    color: rgb(150, 150, 150);
+    text-decoration: none;
+}
+
+.button a:hover {
+    background-color: back;
+    color: rgb(255, 255, 255);
+}
+
+.search{
+    border-radius: none;
+    padding: 20px;
+    width: 73.6%;
+    height: 40;
+}
+
+#backToTop {
+    background-color: black;
+    color: white;
+    font-size: large;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+}
+
+.dark-mode {
+    background: #d7d7d7;
+    color: black;
+}
+
+.dark-mode .card{
+    background: #e2e2e2;
+    color: black;
+}
+
+.dark-mode .header{
+    background: #f2f2f2;
+    color: black;
+}
+
+.dark-mode #nike{
+    color: black;
+}
+
+.dark-mode #backToTop{
+    color: black;
+    background-color: whitesmoke;
+}
+
+.dark-mode .topnav{
+    background: #e4e4e4;
+    color: black;
+}
+
+.dark-mode .footer{
+    background: #4e4e4e;
+    color: rgb(194, 194, 194);
+}
+
+@media screen and (max-width: 768px) {    
+    h2{
+        font-size: 95%;
+    }
+
+    #img{
+        max-width: 130%;
+    }
+
+    .search{
+        width: 45.3%;
+    }
+
+}

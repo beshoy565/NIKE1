@@ -1,0 +1,250 @@
+<html>
+
+<head>
+    <title>news</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: arial;
+            background-color: #464646;
+            padding: 10;
+        }
+
+
+
+        .header {
+            color: white;
+            text-align: center;
+            padding: 30px;
+            background-color: rgb(0, 0, 0);
+            animation-duration: 5s;
+            animation-name: fadein;
+        }
+
+        h1 {
+            animation-duration: 5s;
+            animation-name: fadein;
+        }
+
+        @keyframes fadein {
+            0% {
+                color: black;
+            }
+
+            100% {
+                color: white;
+            }
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 50px;
+        }
+
+        .topnav {
+            background-color: rgb(27, 27, 27);
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .topnav a:not(.nike) {
+            float: left;
+            display: block;
+            color: #8e8e8e;
+            padding: 13px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .nike {
+            float: left;
+            display: block;
+            color: #000000;
+            background-color: white;
+            padding: 13px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .topnav a:hover:not(.nike) {
+            color: rgb(255, 255, 255);
+            background-color: rgb(78, 78, 78);
+        }
+
+        .nike:hover {
+            color: rgb(33, 33, 33);
+            background-color: rgb(57, 57, 57);
+        }
+
+        .search {
+            border-radius: none;
+            padding: 20px;
+            width: 74.15%;
+            height: 40;
+        }
+
+        .news {
+            background-color: white;
+
+        }
+
+        .didyouknow {
+            float: left;
+            background-color: aliceblue;
+            float: left;
+            display: block;
+            border: #8d8d8d solid;
+            border-radius: 30px;
+            margin: 50px;
+            padding: 10px;
+            width: 40%;
+        }
+
+        .funfact {
+            background-color: aliceblue;
+            border: #8d8d8d solid;
+            border-radius: 30px;
+            float: left;
+            display: block;
+            margin: 50px;
+            padding: 10px;
+            width: 40%;
+            height: 28%;
+
+
+
+        }
+
+        .footer {
+            padding: 2px;
+            margin-top: 40%;
+            text-align: center;
+            background-color: #ddd;
+            border-radius: 10px;
+        }
+
+        #backToTop {
+            background-color: black;
+            color: white;
+            font-size: large;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+
+        .dark-mode {
+            background: #d7d7d7;
+            color: black;
+        }
+
+        .dark-mode .didyouknow{
+            background: #484848;
+            color: rgb(200, 200, 200);
+        }
+
+        .dark-mode .funfact{
+            background: #484848;
+            color: rgb(200, 200, 200);
+        }
+
+
+
+        .dark-mode .card {
+            background: #e2e2e2;
+            color: black;
+        }
+
+        .dark-mode .header {
+            background: #f2f2f2;
+            color: black;
+        }
+
+        .dark-mode #nike {
+            color: black;
+        }
+
+        .dark-mode #backToTop {
+            color: black;
+            background-color: whitesmoke;
+        }
+
+        .dark-mode .topnav {
+            background: #e4e4e4;
+            color: black;
+        }
+
+        .dark-mode .footer {
+            background: #4e4e4e;
+            color: rgb(194, 194, 194);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1 id="nike">news</h1>
+        <p>check our history</p>
+    </div>
+    <button id="backToTop">⬆ Top</button>
+    <div class="topnav">
+        <a href="../website.html" class="nike">nike</a>
+        <a href="trending.html">trending</a>
+        <a href="shop.html">shop</a>
+        <input class="search" type="text" placeholder="search">
+        <a id="toggleDarkMode">darkmode</a>
+        <a href="onsale.html" style="float: right;">on sale!!</a>
+    </div>
+
+    <div class="news">
+
+        <div class="didyouknow">
+
+
+            <h2><ins>did you know that</ins></h2>
+
+            <p>-nike was invented in 1964</p>
+
+            <p>-nike collabarated with OVO</p>
+
+            <p>-nike is the most succesful shoes company</p>
+
+
+
+
+        </div>
+
+
+        <div class="funfact">
+            <h2><ins>fun fact</ins></h2>
+
+            <p>-nike made more shoes than the population of fiji</p>
+
+
+
+        </div>
+
+
+    </div>
+
+    <div class="footer">
+        <h5>1964-2024 nike.inc.all rights reserved</h5>
+    </div>
+
+    <script>
+        //dark mode
+        document.getElementById("toggleDarkMode").onclick = () => document.body.classList.toggle("dark-mode");
+
+        //backtotop
+        window.onscroll = () => {
+            document.getElementById("backToTop").style.display = window.scrollY > 100 ? "block" : "none"
+        }
+        document.getElementById("backToTop").onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    </script>
+</body>
+
+</html>
